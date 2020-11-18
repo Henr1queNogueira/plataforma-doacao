@@ -1,0 +1,84 @@
+body {
+  padding-top: 75px;
+ 
+
+}
+p {
+	text-align: justify;
+	text-justify: inter-word;
+
+}
+
+@media (max-width: 767px) {
+ .display-4{
+    font-size: 2.5rem;
+  }
+  .fixed-top {
+    position: relative;
+  }
+}
+
+.lista-plano li + li {
+  border-top: 1px solid rgba(0,0,0,.2);
+}
+
+.lista-plano li {
+  padding: 1rem;
+}
+
+
+
+/*Inicio Navbar*/
+.myNav{
+	font-family: 'Montserrat', sans-serif;
+	
+}
+.myNav #liPersonalizada:hover {
+	background-color: #87cefa;
+	
+}
+
+.star_block{
+	display:inline-block;
+    text-align:left;
+}
+video{
+	width: 100%;
+	height: auto;
+	
+}
+/*Fim Navbar*/
+
+.img-quartos{
+	width: 400px;
+	height: 300px 
+}
+
+#logo{
+    width: auto;
+	height: auto;
+	padding: 20px;
+}
+#btnDisponibilidade{
+	margin-left: 10px;
+	
+}
+#btn-reservar{
+	text-align: right;
+}
+#div-reservas{
+	background-color: #138496;
+}
+#btn-saibaMais{
+	position: absolute;
+    left:90%;
+    transform: translate(-50%, -50%);
+}
+
+/*Carrossel*/
+.imagem-carrossel{
+	object-fit: cover;
+	object-position: 0 55%;
+	height: 400px;
+}
+

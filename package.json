@@ -1,0 +1,15 @@
+{
+  "name": "doacao-casa-apoio-v2",
+  "version": "1.0.0",
+  "description": "Plataforma destinada para arrecadar doacoes para casa de apoio - Filhos de Hiram",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jose Henrique dos Santos Nogueira",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  }
+}

@@ -1,0 +1,193 @@
+<%- include('./partials/head.ejs'); %>
+  <%- include('./partials/navbar.ejs'); %>
+    <div class="container bg-light shadow p-5">
+        <div class=" p-4 text-center bg-info">
+            <h1 class="display-5 text-light text-center p-2">FAÇA SUA DOAÇÃO</h1>
+          </div>      
+          <div class="row p-3">
+            <div class="col-md-12 order-md-1 p-4">
+              <h4 class="mb-3">Dados pessoais <hr></h4>
+              <br>
+              <form class="needs-validation" novalidate>
+                <div class="row">
+                  <div class="col-md-4 mb-3">
+                    <label for="firstName">Nome</label>
+                    <input type="text" class="form-control" id="nome" placeholder="Jhon" value="" required>
+                    <div class="invalid-feedback">
+                      campo inválido.
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                      <label for="firstName">Sobrenome</label>
+                      <input type="text" class="form-control" id="sobre" placeholder="da Silva" value="" required>
+                      <div class="invalid-feedback">
+                        campo inválido.
+                      </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                      <label for="firstName">CPF</label>
+                      <input type="number" class="form-control" id="firstName" placeholder="apenas números" value="" required>
+                      <div class="invalid-feedback">
+                        CPF inválido.
+                      </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 mb-3">
+                      <label for="email">Data de Nascimento</label>
+                      <input type="date" class="form-control" id="dataNascimento" placeholder="DD/MM/YYYY" value="" required>
+                      <div class="invalid-feedback">
+                          campo inválido.
+                        </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                      <label for="email">Email<span class="text-muted">(Opcional)</span></label>
+                      <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                      <div class="invalid-feedback">
+                        Please enter a valid email address for shipping updates.
+                      </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                      <label for="email">Telefone<span class="text-muted"> (Opcional)</span></label>
+                      <input type="email" class="form-control" id="email" placeholder="(69)4002-8922">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                      <label for="address">Endereço 1</label>
+                      <input type="text" class="form-control" id="address" placeholder="Rua Herbert Daniel, 1946 - Bairro Lapa " required>
+                      <div class="invalid-feedback">
+                        Por favor, digite seu endereço.
+                      </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                      <label for="address">Endereço 2<span class="text-muted">(Opcional)</span></label>
+                      <input type="text" class="form-control" id="address" placeholder="">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 mb-3">
+                      <label for="country">País</label>
+                      <select class="custom-select d-block w-100" id="cidade" required>
+                        <option selected disabled>Selecione</option>
+                        <option>Brasil</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Por favor, selecione uma opção.
+                      </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                      <label for="country">Estado</label>
+                      <select class="custom-select d-block w-100" id="cidade" required>
+                          <option selected disabled>Selecione</option>
+                          <option>Rondônia</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Por favor, selecione uma opção.
+                      </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="country">Cidade</label>
+                    <select class="custom-select d-block w-100" id="cidade" required>
+                      <option selected disabled>Selecione</option>
+                      <option>Porto Velho</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Por favor, selecione uma opção.
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <h4 class="mb-3">Doação <hr></h4>
+        
+                <div class="d-block my-3">
+                  <div class="custom-control custom-radio">
+                    <input type="radio" name="paymentMethod" class="custom-control-input" id="creditCard" value="creditCard" onclick="tipoPagamento('creditCard')" checked>
+                    <label class="custom-control-label" for="creditCard">Cartão de Crédito</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" name="paymentMethod" class="custom-control-input" id="debitCard" value="debitCard" onclick="tipoPagamento('debitCard')">
+                    <label class="custom-control-label" for="debitCard">Cartão de Débito</label>
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input name="paymentMethod" type="radio" class="custom-control-input" id="paypal" value="paypal" onclick="tipoPagamento('paypal')">
+                    <label class="custom-control-label" for="paypal">PayPal</label>
+                  </div>
+                </div>
+                <!-- Pagamento com cartão de crédito -->
+                <div class="row">
+                  <div class="col-md-6 mb-3 creditCard">
+                    <label for="cc-name" class="creditCard">Títular do Cartão</label>
+                    <input type="text" class="form-control creditCard" id="cc-name" placeholder="" required>
+                    <small class="text-muted">Nome igual ao escrito no cartão</small>
+                    <div class="invalid-feedback creditCard">
+                      Campo inválido
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3 creditCard">
+                    <label for="cc-number" class="creditCard">Número do Cartão</label>
+                    <input type="text" name="creditCardHolderName" class="form-control creditCard" id="creditCardHolderName" placeholder="" required>
+                    <div class="invalid-feedback creditCard">
+                      Campo inválido
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3 creditCard">
+                      <label for="cc-expiration" class="creditCard">Data de Validade</label>
+                      <input type="text" class="form-control creditCard" id="cc-expiration" placeholder="MM/AA" required>
+                      <div class="invalid-feedback creditCard">
+                        Campo inválido
+                      </div>
+                    </div>
+                    <div class="col-md-3 mb-3 creditCard">
+                      <label for="cc-cvv" class="creditCard">Código de Segurança</label>
+                      <input type="text" class="form-control creditCard" id="cc-cvv" placeholder="CVV" maxlength="3" value="123" required>
+                      <div class="invalid-feedback creditCard">
+                        Campo inválido
+                      </div>
+                    </div>
+                </div>
+                <!-- Pagamento com cartão de débito -->
+                <div class="row">
+                  <div class="col-md-6 mb-3 debitCard">
+                    <label for="cc-name" class="debitCard">Títular do Cartão</label>
+                    <input type="text" class="form-control eft" id="cc-name" placeholder="" required>
+                    <small class="text-muted">Nome igual ao escrito no cartão</small>
+                    <div class="invalid-feedback debitCard">
+                      Campo inválido
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3 debitCard">
+                    <label for="cc-number" class="debitCard">Número do Cartão</label>
+                    <input type="text" name="debitCardHolderName" class="form-control debitCard" id="debitCardHolderName" placeholder="" required>
+                    <div class="invalid-feedback debitCard">
+                      Campo inválido
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3 debitCard">
+                      <label for="cc-expiration" class="debitCard">Data de Validade</label>
+                      <input type="text" class="form-control debitCard" id="cc-expiration" placeholder="MM/AA" required>
+                      <div class="invalid-feedback debitCard">
+                        Campo inválido
+                      </div>
+                    </div>
+                    <div class="col-md-3 mb-3 debitCard">
+                      <label for="cc-cvv" class="debitCard">Código de Segurança</label>
+                      <input type="text" class="form-control debitCard" id="cc-cvv" placeholder="CVV" maxlength="3" value="123" required>
+                      <div class="invalid-feedback debitCard">
+                        Campo inválido
+                      </div>
+                    </div>
+                </div>
+                <!--Pagamento com Paypal-->
+                <div class="row">
+                  <div class="col-md-6 mb-3 paypal">
+                    <a href="https://www.paypal.com/br" class="btn btn-lg btn-success paypal">Paypal</a>
+                  </div>
+                </div>
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">DOAR</button>
+              </form>
+            </div>
+          </div>
+    </div>
+<%- include('./partials/footer.ejs'); %>
