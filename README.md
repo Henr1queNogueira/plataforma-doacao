@@ -1,10 +1,7 @@
 # plataforma-doacao
 A plataforma tem como objetivo divulgar e arrecadar doação para construir a casa de apoio Filhos de Hiram. 
 
-Neste projeto, utilizei:
-_ Framework express.js;
-_ Biblioteca EJS 
-_ Nodemon (biblioteca responsável por inicializar o servidor automamente, após uma modificação)
+Neste projeto, utilizei: Framework express.js, Biblioteca EJS e Nodemon (biblioteca responsável por inicializar o servidor automamente, após uma modificação)
 
 1. Instale o node e npm
 2. Instale o express: npm install express --save
