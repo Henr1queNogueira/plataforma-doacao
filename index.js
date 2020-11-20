@@ -6,8 +6,17 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
+/**IMPORTANDO OS CONTROLLERS */
+const doarController = require('./controllers/doarController');
+const contatoController = require('./controllers/contatoController');
 
-/**ROTAS */
+
+/**Rotas exportadas da pasta controllers*/
+app.use('/', doarController);
+app.use('/', contatoController);
+
+
+/**--- ROTAS ----- */
 app.get("/", function(req, res){
     res.render("index");
 });
@@ -17,15 +26,7 @@ app.get("/sobre", function(req, res){
     res.render("sobre")
 });
 
-//FALE CONOSCO
-app.get("/contato", function(req, res){
-    res.render("contato");
-});
 
-//FORMULÁRIO PARA DOAÇÃO
-app.get("/doar", function(req, res){
-    res.render("doar");
-});
 
 /**SERVIDOR */
 app.listen(8000, function(erro){
