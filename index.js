@@ -22,7 +22,7 @@ app.get("/contato", function(req, res){
     res.render("contato");
 });
 
-//FORMULÁRIO PARA DOAR
+//FORMULÁRIO PARA DOAÇÃO
 app.get("/doar", function(req, res){
     res.render("doar");
 });
