@@ -1,10 +1,10 @@
 <%- include('./partials/head.ejs'); %>
   <%- include('./partials/navbar.ejs'); %>
     <div class="container bg-light shadow p-5">
-        <div class=" p-4 text-center bg-info">
-            <h1 class="display-5 text-light text-center p-2">FAÇA SUA DOAÇÃO</h1>
+        <div class=" p-4 text-center">
+            <h1 class="display-5 text-info text-center p-2">FAÇA SUA DOAÇÃO</h1>
         </div>      
-          <div class="row p-3">
+          <div class="row">
             <div class="col-md-12 order-md-1 p-4">
               <h4 class="mb-3">Dados pessoais <hr></h4>
               <br>
@@ -98,94 +98,101 @@
                   </div>
                 </div>
                 <br>
-                <h4 class="mb-3">Doação <hr></h4>
+                <h4 class="mb-3">Pagamento<hr></h4>
         
                 <div class="d-block my-3">
-                  <div class="custom-control custom-radio">
-                    <input type="radio" name="paymentMethod" class="custom-control-input" id="creditCard" value="creditCard" onclick="tipoPagamento('creditCard')" checked>
-                    <label class="custom-control-label" for="creditCard">Cartão de Crédito</label>
-                  </div>
-                  <div class="custom-control custom-radio">
-                    <input type="radio" name="paymentMethod" class="custom-control-input" id="debitCard" value="debitCard" onclick="tipoPagamento('debitCard')">
-                    <label class="custom-control-label" for="debitCard">Cartão de Débito</label>
-                  </div>
-                  <div class="custom-control custom-radio">
-                    <input name="paymentMethod" type="radio" class="custom-control-input" id="paypal" value="paypal" onclick="tipoPagamento('paypal')">
-                    <label class="custom-control-label" for="paypal">PayPal</label>
-                  </div>
+                    <a class="btn btn-primary" data-toggle="collapse" href="#cartaoCredito" role="button" aria-expanded="false" aria-controls="cartaoCredito" id="btn-first">
+                      Cartão de Crédito
+                    </a>
+                    <a class="btn btn-primary" data-toggle="collapse" href="#cartaoDebito" role="button" aria-expanded="false" aria-controls="cartaoDebito" id="btn-second">
+                      Cartão de Débito
+                    </a>              
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#paypal" aria-expanded="false" aria-controls="paypal" id="btn-third">
+                      Paypal
+                    </button>
                 </div>
-                <!-- Pagamento com cartão de crédito -->
+
+                <!--Inserindo linhas para selecionar formas de pagamentos-->
                 <div class="row">
-                    <div class="col-md-6 mb-3 creditCard">
-                      <label for="cc-name" class="creditCard">Títular do Cartão</label>
-                      <input type="text" class="form-control creditCard" id="cc-name" placeholder="" required>
-                      <small class="text-muted">Nome igual ao escrito no cartão</small>
-                        <div class="invalid-feedback creditCard">
-                          Campo inválido
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3 creditCard">
-                      <label for="cc-number" class="creditCard">Número do Cartão</label>
-                      <input type="text" name="creditCardHolderName" class="form-control creditCard" id="creditCardHolderName" placeholder="" required>
-                        <div class="invalid-feedback creditCard">
-                          Campo inválido
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3 creditCard">
-                        <label for="cc-expiration" class="creditCard">Data de Validade</label>
-                        <input type="text" class="form-control creditCard" id="cc-expiration" placeholder="MM/AA" required>
-                          <div class="invalid-feedback creditCard">
+                  <!-- Pagamento com cartão de crédito -->
+                  <div class="collapse" id="cartaoCredito">
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label for="cc-name" class="">Títular do Cartão</label>
+                        <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                        <small class="text-muted">Nome igual ao escrito no cartão</small>
+                          <div class="invalid-feedback">
                             Campo inválido
                           </div>
-                    </div>
-                    <div class="col-md-3 mb-3 creditCard">
-                        <label for="cc-cvv" class="creditCard">Código de Segurança</label>
-                        <input type="text" class="form-control creditCard" id="cc-cvv" placeholder="CVV" maxlength="3" value="123" required>
-                          <div class="invalid-feedback creditCard">
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="cc-number" class="">Número do Cartão</label>
+                        <input type="text" name="HolderName" class="form-control " id="HolderName" placeholder="" required>
+                          <div class="invalid-feedback">
                             Campo inválido
                           </div>
-                    </div>
-                </div>
-                <!-- Pagamento com cartão de débito -->
-                <div class="row">
-                  <div class="col-md-6 mb-3 debitCard">
-                    <label for="cc-name" class="debitCard">Títular do Cartão</label>
-                    <input type="text" class="form-control eft" id="cc-name" placeholder="" required>
-                    <small class="text-muted">Nome igual ao escrito no cartão</small>
-                      <div class="invalid-feedback debitCard">
-                        Campo inválido
+                      </div>
+                      <div class="col-md-3 mb-3">
+                          <label for="cc-expiration" class="">Data de Validade</label>
+                          <input type="text" class="form-control " id="cc-expiration" placeholder="MM/AA" required>
+                            <div class="invalid-feedback ">
+                              Campo inválido
+                            </div>
+                      </div>
+                      <div class="col-md-3 mb-3">
+                          <label for="cc-cvv" class="">Código de Segurança</label>
+                          <input type="text" class="form-control " id="cc-cvv" placeholder="CVV" maxlength="3" value="123" required>
+                            <div class="invalid-feedback ">
+                              Campo inválido
+                            </div>
                       </div>
                   </div>
-                  <div class="col-md-6 mb-3 debitCard">
-                    <label for="cc-number" class="debitCard">Número do Cartão</label>
-                    <input type="text" name="debitCardHolderName" class="form-control debitCard" id="debitCardHolderName" placeholder="" required>
-                      <div class="invalid-feedback debitCard">
-                        Campo inválido
-                      </div>
+                    
                   </div>
-                  <div class="col-md-3 mb-3 debitCard">
-                      <label for="cc-expiration" class="debitCard">Data de Validade</label>
-                      <input type="text" class="form-control debitCard" id="cc-expiration" placeholder="MM/AA" required>
-                        <div class="invalid-feedback debitCard">
-                          Campo inválido
+                   <!-- Pagamento com cartão de débito -->
+                  <div class="collapse" id="cartaoDebito">
+                    <div class="row">
+                      <div class="col-md-6 mb-3">
+                        <label for="cc-name" class="">Títular do Cartão</label>
+                        <input type="text" class="form-control eft" id="cc-name" placeholder="" required>
+                        <small class="text-muted">Nome igual ao escrito no cartão</small>
+                          <div class="invalid-feedback ">
+                            Campo inválido
+                          </div>
+                      </div>
+                      <div class="col-md-6 mb-3">
+                        <label for="cc-number" class="">Número do Cartão</label>
+                        <input type="text" name="HolderName" class="form-control " id="HolderName" placeholder="" required>
+                          <div class="invalid-feedback ">
+                            Campo inválido
+                          </div>
+                      </div>
+                      <div class="col-md-3 mb-3">
+                          <label for="cc-expiration" class="">Data de Validade</label>
+                          <input type="text" class="form-control " id="cc-expiration" placeholder="MM/AA" required>
+                            <div class="invalid-feedback ">
+                              Campo inválido
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                          <label for="cc-cvv" class="">Código de Segurança</label>
+                          <input type="text" class="form-control " id="cc-cvv" placeholder="CVV" maxlength="3" value="123" required>
+                            <div class="invalid-feedback ">
+                              Campo inválido
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-3 mb-3 debitCard">
-                      <label for="cc-cvv" class="debitCard">Código de Segurança</label>
-                      <input type="text" class="form-control debitCard" id="cc-cvv" placeholder="CVV" maxlength="3" value="123" required>
-                        <div class="invalid-feedback debitCard">
-                          Campo inválido
-                        </div>
+                  </div>
+                  <div class="collapse" id="paypal">
+                    <div class="col-md-12 mb-3">
+                      <br>   
+                       Para fazer sua doação via Paypal <a href="https://www.paypal.com/br" class="btn btn-sm btn-outline-primary" target="_blank">Clique aqui</a>
+                       <br>   
                     </div>
-                </div>
-                <!--Pagamento com Paypal-->
-                <div class="row">
-                  <div class="col-md-6 mb-3 paypal">
-                    <a href="https://www.paypal.com/br" class="btn btn-lg btn-success paypal" target="_blank">Paypal</a>
                   </div>
                 </div>
                 <hr class="mb-4">
-                  <button class="btn btn-primary btn-lg btn-block" type="submit">DOAR</button>
+                  <button class="btn btn-success btn-lg btn-block" type="submit">DOAR</button>
               </form>
             </div>
           </div>
