@@ -10,27 +10,20 @@ function confirmDelete(event, form){
 
 };
 
-function tipoPagamento(paymentMethod){
-    if(paymentMethod == "creditCard"){
-        $('.creditCard').show();
-        $('.paypal').hide();
-        $('.debitCard').hide();
-    }
-    if(paymentMethod == "paypal"){
-        $('.creditCard').hide();
-        $('.paypal').show();
-        $('.debitCard').hide();
-    }
-    if(paymentMethod == "debitCard"){
-        $('.creditCard').hide();
-        $('.debitCard').show();
-        $('.paypal').hide();
-    }
-}
+$('#btn-first').click(function(){
+    $('#cartaoCredito').show();
+    $('#cartaoDebito').hide();
+    $('#paypal').hide();
+});
 
+$('#btn-second').click(function(){
+    $('#cartaoDebito').show();
+    $('#cartaoCredito').hide();
+    $('#paypal').hide();
+});
 
-/*$('.datepicker').datepicker({
-    format: 'dd/mm/yyyy', 
-    language: 'pt-BR'
-    
-});*/
+$('#btn-third').click(function(){
+    $('#paypal').show();
+    $('#cartaoCredito').hide();
+    $('#cartaoDebito').hide();
+});
