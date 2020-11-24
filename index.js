@@ -2,9 +2,16 @@
 const express = require("express");
 const app = express();
 
+/**BODY PARSER */
+const bodyParser = require('body-parser');
+
 /**EJS c/ express*/
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+
+/**BODY PARSER c/ express */
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 /**IMPORTANDO OS CONTROLLERS */
 const doarController = require('./controllers/doarController');
