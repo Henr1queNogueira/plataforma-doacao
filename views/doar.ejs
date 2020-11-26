@@ -22,21 +22,21 @@
                 <div class="form-row">
                   <div class="col-md-4 mb-3">
                     <label name="nome">Nome</label>
-                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Rebecca" value="" required>
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Rebecca" required>
                       <div class="invalid-feedback">
                         Este campo é obrigatório.
                       </div>
                   </div>
                   <div class="col-md-4 mb-3">
                       <label>Sobrenome</label>
-                      <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Albertalli" value="" required>
+                      <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Albertalli" required>
                         <div class="invalid-feedback">
                           Este campo é obrigatório.
                         </div>
                   </div>
                   <div class="col-md-4 mb-3">
                       <label>CPF</label>
-                      <input type="number" class="form-control" id="cpf" name="cpf" placeholder="apenas números" value="" required>
+                      <input type="number" class="form-control" id="cpf" name="cpf" placeholder="apenas números" required>
                         <div class="invalid-feedback">
                           Este campo é obrigatório
                         </div>
@@ -45,7 +45,7 @@
                 <div class="form-row">
                   <div class="col-md-4 mb-3">
                       <label for="email">Data de Nascimento</label>
-                      <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" placeholder="DD/MM/YYYY" value="" required>
+                      <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" placeholder="DD/MM/YYYY" required>
                         <div class="invalid-feedback">
                             Este campo é obrigatório.
                           </div>
@@ -75,7 +75,7 @@
                   </div>
                   <div class="col-md-6 mb-3">
                       <label>Endereço 2<span class="text-muted">(Opcional)</span></label>
-                      <input type="text" class="form-control" id="endereco2" name="endereco2" placeholder="">
+                      <input type="text" class="form-control" id="endereco2" name="endereco2" placeholder="Endereço opcional">
                   </div>
                 </div>
                 <div class="form-row">
@@ -291,7 +291,7 @@
                   <div class="col-md-4 mb-3">
                       <label>Estado</label>
                       <select class="custom-select d-block w-100" id="estado" name="estado" required>
-                          <option selected disabled>Selecione</option>
+                          <option selected disabled value="">Selecione</option>
                           <option>Rondônia</option>
                       </select>
                       <div class="invalid-feedback">
@@ -301,7 +301,7 @@
                   <div class="col-md-4 mb-3">
                     <label for="country">Cidade</label>
                     <select class="custom-select d-block w-100" id="cidade" name="cidade" required>
-                      <option selected disabled>Selecione</option>
+                      <option selected disabled value="">Selecione</option>
                       <option>Porto Velho</option>
                     </select>
                     <div class="invalid-feedback">
@@ -311,14 +311,14 @@
                 </div>
                 <br>
                 <h4 class="mb-3">Pagamento<hr></h4>
-                  <div class="d-block my-3">
-                      <a class="btn btn-primary" data-toggle="collapse" href="#cartaoCredito" role="button" aria-expanded="false" aria-controls="cartaoCredito" id="btn-first">
+                  <div class="form-row d-block my-3">
+                      <button class="btn btn-primary m-1" type="button" data-toggle="collapse" data-target="#cartaoCredito" aria-expanded="false" aria-controls="cartaoCredito" id="btn-first">
                         Cartão de Crédito
-                      </a>
-                      <a class="btn btn-primary" data-toggle="collapse" href="#cartaoDebito" role="button" aria-expanded="false" aria-controls="cartaoDebito" id="btn-second">
+                      </button>
+                      <button class="btn btn-primary m-1" type="button" data-toggle="collapse" data-target="#cartaoDebito" aria-expanded="false" aria-controls="cartaoDebito" id="btn-second">
                         Cartão de Débito
-                      </a>              
-                      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#paypal" aria-expanded="false" aria-controls="paypal" id="btn-third">
+                      </button>          
+                      <button class="btn btn-primary m-1" type="button" data-toggle="collapse" data-target="#paypal" aria-expanded="false" aria-controls="paypal" id="btn-third">
                         Paypal
                       </button>
                   </div>
