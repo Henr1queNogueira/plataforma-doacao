@@ -3,25 +3,35 @@
     <div class="container bg-light shadow p-5">
         <div class=" p-4 text-center">
             <h1 class="display-5 text-info text-center p-2">FAÇA SUA DOAÇÃO</h1>
+            <div class="container">
+              <%- include('partials/mensagens.ejs'); %>
+          </div>  
         </div>      
-          <div class="row">
+          <div class="form-row">
             <div class="col-md-12 order-md-1 p-4">
               <h4 class="mb-3">Dados pessoais <hr></h4>
               <br>
+              <% if(typeof erros != 'undefined'){ %>
+                <% erros.forEach(function(error) { %>
+                    <div class="alert alert-danger">
+                        <%= error.text %>
+                    </div>
+                <% }); %>
+              <% } %>
               <form class="needs-validation" novalidate>
-                <div class="row">
+                <div class="form-row">
                   <div class="col-md-4 mb-3">
-                    <label>Nome</label>
+                    <label name="nome">Nome</label>
                     <input type="text" class="form-control" id="nome" name="nome" placeholder="Rebecca" value="" required>
                       <div class="invalid-feedback">
-                        campo inválido.
+                        Este campo é obrigatório.
                       </div>
                   </div>
                   <div class="col-md-4 mb-3">
                       <label>Sobrenome</label>
                       <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Albertalli" value="" required>
                         <div class="invalid-feedback">
-                          campo inválido.
+                          Este campo é obrigatório.
                         </div>
                   </div>
                   <div class="col-md-4 mb-3">
@@ -32,30 +42,33 @@
                         </div>
                   </div>
                 </div>
-                <div class="row">
+                <div class="form-row">
                   <div class="col-md-4 mb-3">
                       <label for="email">Data de Nascimento</label>
                       <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" placeholder="DD/MM/YYYY" value="" required>
                         <div class="invalid-feedback">
-                            Campo inválido.
+                            Este campo é obrigatório.
                           </div>
                   </div>
                   <div class="col-md-4 mb-3">
-                      <label>Email<span class="text-muted">(Opcional)</span></label>
-                      <input type="email" class="form-control" id="email" name="email" placeholder="seuemail@email.com">
+                      <label>Email</label>
+                      <input type="email" class="form-control" id="email" name="email" placeholder="seuemail@email.com" required>
                         <div class="invalid-feedback">
-                          Campo inválido.
+                          Este campo é obrigatório.
                         </div>
                   </div>
                   <div class="col-md-4 mb-3">
-                      <label>Contato<span class="text-muted"> (Opcional)</span></label>
-                      <input class="form-control" id="contato" name="contato" placeholder="(69)4002-8922">
+                      <label>Contato</label>
+                      <input class="form-control" id="contato" name="contato" placeholder="(69)4002-8922" required>
+                      <div class="invalid-feedback">
+                        Este campo é obrigatório.
+                      </div>
                   </div>
                 </div>
-                <div class="row">
+                <div class="form-row">
                   <div class="col-md-6 mb-3">
                       <label>Endereço 1</label>
-                      <input type="text" class="form-control" id="endereco1" name="endereco2" placeholder="Rua Herbert Daniel, 1946 - Bairro Lapa" required>
+                      <input type="text" class="form-control" id="endereco1" name="endereco1" placeholder="Rua Herbert Daniel, 1946 - Bairro Lapa" required>
                         <div class="invalid-feedback">
                           Por favor, digite seu endereço.
                         </div>
@@ -65,11 +78,11 @@
                       <input type="text" class="form-control" id="endereco2" name="endereco2" placeholder="">
                   </div>
                 </div>
-                <div class="row">
+                <div class="form-row">
                   <div class="col-md-4 mb-3">
                       <label>País</label>
-                      <select class="custom-select d-block w-100" id="pais" name="pais" required>
-                        <option selected disabled>Selecione</option>
+                      <select class="custom-select d-block w-100" required>
+                        <option selected disabled value="">Selecione</option>
                         <option value="AHO">Antilhas Holandesas</option>
                         <option value="ALB">Albânia</option>
                         <option value="ALG">Argélia</option>
@@ -277,8 +290,8 @@
                   </div>
                   <div class="col-md-4 mb-3">
                       <label>Estado</label>
-                      <select class="custom-select d-block w-100" id="cidade" required>
-                          <option selected disabled>Selecione</option>
+                      <select class="custom-select d-block w-100" required>
+                          <option selected disabled value="">Selecione</option>
                           <option>Rondônia</option>
                       </select>
                       <div class="invalid-feedback">
@@ -287,8 +300,8 @@
                   </div>
                   <div class="col-md-4 mb-3">
                     <label for="country">Cidade</label>
-                    <select class="custom-select d-block w-100" id="cidade" required>
-                      <option selected disabled>Selecione</option>
+                    <select class="custom-select d-block w-100" required>
+                      <option selected disabled value="">Selecione</option>
                       <option>Porto Velho</option>
                     </select>
                     <div class="invalid-feedback">
@@ -310,37 +323,37 @@
                       </button>
                   </div>
                 <!--Inserindo linhas para selecionar formas de pagamentos-->
-                <div class="row">
+                <div class="form-row">
                   <!-- Pagamento com cartão de crédito -->
                   <div class="collapse" id="cartaoCredito">
-                    <div class="row">
+                    <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="cc-name" class="">Títular do Cartão</label>
-                        <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                        <input type="text" class="form-control" id="cc-name" placeholder="Digite o nome impresso" required>
                         <small class="text-muted">Nome igual ao escrito no cartão</small>
                           <div class="invalid-feedback">
-                            Campo inválido
+                            Este campo é obrigatório
                           </div>
                       </div>
                       <div class="col-md-6 mb-3">
                         <label for="cc-number" class="">Número do Cartão</label>
-                        <input type="text" name="HolderName" class="form-control " id="HolderName" placeholder="" required>
+                        <input type="text" class="form-control" placeholder="Digite seu número do cartão" required>
                           <div class="invalid-feedback">
-                            Campo inválido
+                            Este campo é obrigatório
                           </div>
                       </div>
                       <div class="col-md-3 mb-3">
                           <label for="cc-expiration" class="">Data de Validade</label>
                           <input type="text" class="form-control " id="cc-expiration" placeholder="MM/AA" required>
                             <div class="invalid-feedback ">
-                              Campo inválido
+                              Este campo é obrigatório
                             </div>
                       </div>
                       <div class="col-md-3 mb-3">
-                          <label for="cc-cvv" class="">Código de Segurança</label>
-                          <input type="text" class="form-control " id="cc-cvv" placeholder="CVV" maxlength="3" value="123" required>
+                          <label>Código de Segurança</label>
+                          <input type="text" class="form-control" placeholder="CVV" maxlength="3" required>
                             <div class="invalid-feedback ">
-                              Campo inválido
+                              Este campo é obrigatório
                             </div>
                       </div>
                   </div>
@@ -348,34 +361,34 @@
                   </div>
                    <!-- Pagamento com cartão de débito -->
                   <div class="collapse" id="cartaoDebito">
-                    <div class="row">
+                    <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="cc-name" class="">Títular do Cartão</label>
-                        <input type="text" class="form-control eft" id="cc-name" placeholder="" required>
+                        <input type="text" class="form-control eft" id="cc-name" placeholder="Digite o nome impresso" required>
                         <small class="text-muted">Nome igual ao escrito no cartão</small>
                           <div class="invalid-feedback ">
-                            Campo inválido
+                            Este campo é obrigatório
                           </div>
                       </div>
                       <div class="col-md-6 mb-3">
                         <label for="cc-number" class="">Número do Cartão</label>
-                        <input type="text" name="HolderName" class="form-control " id="HolderName" placeholder="" required>
+                        <input type="text" class="form-control" placeholder="Digite o nome impresso" required>
                           <div class="invalid-feedback ">
-                            Campo inválido
+                            Este campo é obrigatório
                           </div>
                       </div>
                       <div class="col-md-3 mb-3">
                           <label for="cc-expiration" class="">Data de Validade</label>
                           <input type="text" class="form-control " id="cc-expiration" placeholder="MM/AA" required>
                             <div class="invalid-feedback ">
-                              Campo inválido
+                              Este campo é obrigatório
                             </div>
                         </div>
                         <div class="col-md-3 mb-3">
                           <label for="cc-cvv" class="">Código de Segurança</label>
-                          <input type="text" class="form-control " id="cc-cvv" placeholder="CVV" maxlength="3" value="123" required>
+                          <input type="text" class="form-control " id="cc-cvv" placeholder="CVV" maxlength="3" required>
                             <div class="invalid-feedback ">
-                              Campo inválido
+                              Este campo é obrigatório
                             </div>
                         </div>
                     </div>

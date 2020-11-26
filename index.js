@@ -2,8 +2,21 @@
 const express = require("express");
 const app = express();
 
+/**Express session */
+const session = require("express-session");
+
+/**Express flash */
+const flash = require('express-flash');
+
+/**Cookie Parser */
+const cookieParser = require('cookie-parser');
+
 /**BODY PARSER */
 const bodyParser = require('body-parser');
+const { text } = require("body-parser");
+
+/**VALIDATOR (biblioteca que ajuda a validar formulário) */
+const validator = require('validator');
 
 /**EJS c/ express*/
 app.set('view engine', 'ejs');
@@ -12,6 +25,26 @@ app.use(express.static('public'));
 /**BODY PARSER c/ express */
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+/**Config do cookie com express */
+app.use(cookieParser("jsaddsh"));
+app.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 }
+  }))
+
+app.use(flash());
+
+//Middleware
+app.use((req, res, next) => {
+    //variáveis globais (vc consegue acessar em qualquer parte da aplicação)
+    res.locals.msg_sucesso = req.flash('msg_sucesso');
+    res.locals.msg_error = req.flash('msg_error');
+    next();
+
+});
 
 /**IMPORTANDO OS CONTROLLERS */
 const doarController = require('./controllers/doarController');
