@@ -7,26 +7,41 @@ function confirmDelete(event, form){
     if(decision == true){
         form.submit();
     }
-
 };
 
-$('#btn-first').click(function(){
-    $('#cartaoCredito').show();
+$(document).ready(function(){
+  //CRÉDITO
+  $("#btn-first").on('click',function(){
     $('#cartaoDebito').hide();
     $('#paypal').hide();
-});
 
-$('#btn-second').click(function(){
-    $('#cartaoDebito').show();
+    $("#cartaoCredito").toggle(function() {
+      $(this).next().toggle(4000)
+      
+  })});
+
+  //DÉBITO
+  $("#btn-second").on('click',function(){
     $('#cartaoCredito').hide();
     $('#paypal').hide();
-});
 
-$('#btn-third').click(function(){
-    $('#paypal').show();
+    $("#cartaoDebito").toggle(function() {
+      $(this).next().toggle(4000)
+      
+  })});
+
+  //PAYPAL
+  $("#btn-third").on('click',function(){
     $('#cartaoCredito').hide();
     $('#cartaoDebito').hide();
+
+    $("#paypal").toggle(function() {
+      $(this).next().toggle(4000)
+      
+  })});
+
 });
+
 
 /**Validação - lado cliente */
 (function() {
@@ -44,4 +59,3 @@ $('#btn-third').click(function(){
       });
     }, false);
   })();
-  
