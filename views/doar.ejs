@@ -299,7 +299,7 @@
                       </div>
                   </div>
                   <div class="col-md-4 mb-3">
-                    <label for="country">Cidade</label>
+                    <label>Cidade</label>
                     <select class="custom-select d-block w-100" id="cidade" name="cidade" required>
                       <option selected disabled value="">Selecione</option>
                       <option>Porto Velho</option>
@@ -329,29 +329,29 @@
                     <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="cc-name" class="">Títular do Cartão</label>
-                        <input type="text" class="form-control" id="cc-name" placeholder="Digite o nome impresso" required>
+                        <input type="text" class="form-control" id="nomeCredito" name="nomeCredito" placeholder="Digite o nome impresso" required>
                         <small class="text-muted">Nome igual ao escrito no cartão</small>
                           <div class="invalid-feedback">
                             Este campo é obrigatório
                           </div>
                       </div>
                       <div class="col-md-6 mb-3">
-                        <label for="cc-number" class="">Número do Cartão</label>
-                        <input type="text" class="form-control" placeholder="Digite seu número do cartão" required>
+                        <label>Número do Cartão</label>
+                        <input type="text" class="form-control" id="numCredito" name="numCredito" placeholder="Digite seu número do cartão" required>
                           <div class="invalid-feedback">
                             Este campo é obrigatório
                           </div>
                       </div>
                       <div class="col-md-3 mb-3">
-                          <label for="cc-expiration" class="">Data de Validade</label>
-                          <input type="text" class="form-control " id="cc-expiration" placeholder="MM/AA" required>
+                          <label>Data de Validade</label>
+                          <input type="text" class="form-control" id="dataCredito" name="dataCredito" placeholder="MM/AA" required>
                             <div class="invalid-feedback ">
                               Este campo é obrigatório
                             </div>
                       </div>
                       <div class="col-md-3 mb-3">
                           <label>Código de Segurança</label>
-                          <input type="text" class="form-control" placeholder="CVV" maxlength="3" required>
+                          <input type="text" class="form-control" id="codCredito" name="codCredito" placeholder="CVV" maxlength="3" required>
                             <div class="invalid-feedback ">
                               Este campo é obrigatório
                             </div>
@@ -363,30 +363,30 @@
                   <div class="collapse" id="cartaoDebito">
                     <div class="form-row">
                       <div class="col-md-6 mb-3">
-                        <label for="cc-name" class="">Títular do Cartão</label>
-                        <input type="text" class="form-control eft" id="cc-name" placeholder="Digite o nome impresso" required>
+                        <label>Títular do Cartão</label>
+                        <input type="text" class="form-control" id="nomeDebito" name="nomeDebito" placeholder="Digite o nome impresso" required>
                         <small class="text-muted">Nome igual ao escrito no cartão</small>
                           <div class="invalid-feedback ">
                             Este campo é obrigatório
                           </div>
                       </div>
                       <div class="col-md-6 mb-3">
-                        <label for="cc-number" class="">Número do Cartão</label>
-                        <input type="text" class="form-control" placeholder="Digite o nome impresso" required>
+                        <label>Número do Cartão</label>
+                        <input type="text" class="form-control" id="numDebito" name="numDebito" placeholder="Digite o nome impresso" required>
                           <div class="invalid-feedback ">
                             Este campo é obrigatório
                           </div>
                       </div>
                       <div class="col-md-3 mb-3">
-                          <label for="cc-expiration" class="">Data de Validade</label>
-                          <input type="text" class="form-control " id="cc-expiration" placeholder="MM/AA" required>
+                          <label>Data de Validade</label>
+                          <input type="text" class="form-control" id="dataDebito" name="dataDebito" placeholder="MM/AA" required>
                             <div class="invalid-feedback ">
                               Este campo é obrigatório
                             </div>
                         </div>
                         <div class="col-md-3 mb-3">
-                          <label for="cc-cvv" class="">Código de Segurança</label>
-                          <input type="text" class="form-control " id="cc-cvv" placeholder="CVV" maxlength="3" required>
+                          <label>Código de Segurança</label>
+                          <input type="text" class="form-control" id="codDebito" name="codDebito" placeholder="CVV" maxlength="3" required>
                             <div class="invalid-feedback ">
                               Este campo é obrigatório
                             </div>
