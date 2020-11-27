@@ -4,18 +4,37 @@
         <h1 class="display-5 text-info text-center p-3">FALE CONOSCO<hr></h1>
       <div class="row p-3">
         <div class="col-lg-6">
-          <form class="rounded p-4 box-shadow rounded bg-light text-dark" method="POST" action="#">
+          <form class="rounded p-4 box-shadow rounded bg-light text-dark needs-validation" method="POST" action="/contato" novalidate>
+            <div class="container">
+              <%- include('partials/mensagens.ejs'); %>
+            </div> 
+              <% if(typeof erros != 'undefined'){ %>
+                <% erros.forEach(function(error) { %>
+                    <div class="alert alert-danger">
+                        <%= error.text %>
+                    </div>
+                <% }); %>
+              <% } %>
             <div class="form-group">
               <label>Nome</label>
-              <input type="text" class="form-control" name="nome" placeholder="Digite seu nome" required>
+              <input type="text" class="form-control" name="nomeContato" id="nomeContato" placeholder="Digite seu nome" required>
+                <div class="invalid-feedback">
+                  Campo obrigatório.
+                </div>
             </div>
             <div class="form-group">
-              <label for="clienteEmail">E-mail</label>
-              <input type="email" class="form-control" name="email" placeholder="Digite seu e-mail">
+              <label>E-mail</label>
+              <input type="email" class="form-control" name="emailContato" id="emailContato" placeholder="Digite seu e-mail" required>
+                <div class="invalid-feedback">
+                  Campo obrigatório
+                </div>
             </div>
             <div class="form-group">
-              <label for="clienteMensagem">Mensagem</label>
-              <textarea type="text" class="form-control" rows="4" name="mensagem" placeholder="Escreva sua mensagem..."></textarea>
+              <label>Mensagem</label>
+              <textarea type="text" class="form-control" rows="4" name="msgContato" id="msgContato" placeholder="Escreva sua mensagem..." required></textarea>
+                <div class="invalid-feedback">
+                  Campo obrigatório
+                </div>
             </div>
             <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
           </form>
