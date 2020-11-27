@@ -42,6 +42,17 @@ $(document).ready(function(){
 
 });
 
+//Funções para colocar Nome do titular do cartão em maiúsculo
+document.getElementById('nomeCredito').addEventListener('keyup', (ev) => {
+	const input = ev.target;
+	input.value = input.value.toUpperCase();
+});
+
+document.getElementById('nomeDebito').addEventListener('keyup', (ev) => {
+	const input = ev.target;
+	input.value = input.value.toUpperCase();
+});
+
 
 /**Validação - lado cliente */
 (function() {

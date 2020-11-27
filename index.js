@@ -32,7 +32,7 @@ app.use(session({
     secret: 'keyboard cat',
     resave: true,
     saveUninitialized: true,
-    cookie: { maxAge: 60000 }
+    cookie: { maxAge: 6000 }
   }))
 
 app.use(flash());
@@ -54,6 +54,7 @@ const contatoController = require('./controllers/contatoController');
 /**Rotas exportadas da pasta controllers*/
 app.use('/', doarController);
 app.use('/', contatoController);
+
 
 
 /**--- ROTAS ----- */
