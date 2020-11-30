@@ -35,10 +35,9 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <label>CPF</label>
-                        <input type="number" class="form-control" id="cpf" name="cpf" placeholder="apenas números" required>
-                          <div class="invalid-feedback">
-                            Este campo é obrigatório
-                          </div>
+                        <input type="text" class="form-control" name="cpf" placeholder="apenas números" maxlength="11" onblur="return verificarCPF(this.value)" required>
+                          <div class="valid-feedback" id="validoCPF"></div>
+                          <div class="invalid-feedback" id="erroCPF"></div>  
                     </div>
                   </div>
                   <div class="form-row">

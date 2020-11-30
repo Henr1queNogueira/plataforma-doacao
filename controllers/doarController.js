@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const ejs = require('ejs');
 const flash = require('express-flash');
+const { cpf } = require('cpf-cnpj-validator');
 
 const { text } = require('body-parser');
 const { default: validator } = require('validator');
@@ -26,11 +27,11 @@ router.post('/doar', (req, res) => {
             erros.push({text: 'sobrenome inválido'});
         }
         //CPF
-        if(!cpf || cpf == null|| validator.isInt(cpf)){
+        if(!cpf || cpf == null){
             erros.push({text: 'CPF inválido'});
         }
         //DATA DE NASCIMENTO
-        if(!dataNascimento || cpf == null|| validator.isInt(cpf)){
+        if(!dataNascimento || dataNascimento == null || dataNascimento == undefined) {
             erros.push({text: 'CPF inválido'});
         }
         //E-MAIL

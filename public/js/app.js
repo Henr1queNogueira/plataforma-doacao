@@ -9,8 +9,69 @@ function confirmDelete(event, form){
     }
 };
 
+/**Validação - lado cliente */
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    var forms = document.getElementsByClassName('needs-validation');
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+
+/**VALIDAÇÃO DE CPF */
+window.onload = function verificarCPF(c){
+  var i;
+  s = c;
+  var c = s.substr(0,9);
+  var dv = s.substr(9,2);
+  var d1 = 0;
+  var v = false;
+  const invalido = 'CPF inválido'
+  const valido = 'CPF válido'
+
+  for (i = 0; i < 9; i++){
+      d1 += c.charAt(i)*(10-i);
+  }
+  if (d1 == 0){
+      document.getElementById('erroCPF').innerHTML = invalido;
+      v = true;
+      return false;
+  }
+  d1 = 11 - (d1 % 11);
+  if (d1 > 9) d1 = 0;
+  if (dv.charAt(0) != d1){
+      document.getElementById('erroCPF').innerHTML = invalido;
+      v = true;
+      return false;
+  }
+  d1 *= 2;
+  for (i = 0; i < 9; i++){
+      d1 += c.charAt(i)*(11-i);
+  }
+  d1 = 11 - (d1 % 11);
+  if (d1 > 9) d1 = 0;
+  if (dv.charAt(1) != d1){
+      document.getElementById('erroCPF').innerHTML = invalido;
+      v = true;
+      return false;
+  }
+  if (!v) {
+    document.getElementById('validoCPF').innerHTML = valido;
+  }
+}
+
+
+/**Exibir meios de doação */
 $(document).ready(function(){
-  //CRÉDITO
+  //1. CRÉDITO
   $("#btn-first").on('click',function(){
     $('#cartaoDebito').hide();
     $('#paypal').hide();
@@ -20,7 +81,7 @@ $(document).ready(function(){
       
   })});
 
-  //DÉBITO
+  //2. DÉBITO
   $("#btn-second").on('click',function(){
     $('#cartaoCredito').hide();
     $('#paypal').hide();
@@ -30,7 +91,7 @@ $(document).ready(function(){
       
   })});
 
-  //PAYPAL
+  //3. PAYPAL
   $("#btn-third").on('click',function(){
     $('#cartaoCredito').hide();
     $('#cartaoDebito').hide();
@@ -52,21 +113,3 @@ document.getElementById('nomeDebito').addEventListener('keyup', (ev) => {
 	const input = ev.target;
 	input.value = input.value.toUpperCase();
 });
-
-
-/**Validação - lado cliente */
-(function() {
-    'use strict';
-    window.addEventListener('load', function() {
-      var forms = document.getElementsByClassName('needs-validation');
-      var validation = Array.prototype.filter.call(forms, function(form) {
-        form.addEventListener('submit', function(event) {
-          if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          form.classList.add('was-validated');
-        }, false);
-      });
-    }, false);
-  })();
