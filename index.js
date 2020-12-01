@@ -17,7 +17,7 @@ const { text } = require("body-parser");
 
 /**VALIDATOR (biblioteca que ajuda a validar formulário) */
 const validator = require('validator');
-const { cpf } = require('cpf-cnpj-validator');
+
 
 /**EJS c/ express*/
 app.set('view engine', 'ejs');

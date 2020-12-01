@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const ejs = require('ejs');
 const flash = require('express-flash');
-const { cpf } = require('cpf-cnpj-validator');
 
 const { text } = require('body-parser');
 const { default: validator } = require('validator');
