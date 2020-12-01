@@ -20,43 +20,40 @@
                 <form class="needs-validation" method="POST" action="/doar" novalidate>
                   <div class="form-row">
                     <div class="col-md-4 mb-3">
-                      <label>Nome</label>
+                      <label>Nome<span class="text-danger"> *</span></label>
                       <input type="text" class="form-control" name="nome" id="nome" placeholder="Rebecca" required>
                         <div class="invalid-feedback">
                           Este campo é obrigatório.
                         </div>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label>Sobrenome</label>
+                        <label>Sobrenome<span class="text-danger"> *</span></label>
                         <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Albertalli" required>
                           <div class="invalid-feedback">
                             Este campo é obrigatório.
                           </div>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label>CPF</label>
-                        <input type="text" class="form-control" name="cpf" placeholder="apenas números" maxlength="11" onblur="return verificarCPF(this.value)" required>
-                          <div class="valid-feedback" id="validoCPF"></div>
-                          <div class="invalid-feedback" id="erroCPF"></div>  
+                        <label>CPF<span class="text-danger"> *</span></label>
+                        <input type="text" class="form-control" name="cpf" placeholder="apenas números" maxlength="11" required>
+                          <div class="invalid-feedback">Campo obrigatório</div>  
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="col-md-4 mb-3">
-                        <label for="email">Data de Nascimento</label>
-                        <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" placeholder="DD/MM/YYYY" required>
-                          <div class="invalid-feedback">
-                              Este campo é obrigatório.
-                            </div>
+                        <label>Data de Nascimento<span class="text-danger"> *</span></label>
+                        <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" placeholder="DD/MM/YYYY" min="1901-01-01" required>
+                          <div class="invalid-feedback">Este campo é obrigatório.</div>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label>Email</label>
+                        <label>E-mail<span class="text-danger"> *</span></label>
                         <input type="email" class="form-control" id="email" name="email" placeholder="seuemail@email.com" required>
                           <div class="invalid-feedback">
                             Este campo é obrigatório.
                           </div>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label>Contato</label>
+                        <label>Contato<span class="text-danger"> *</span></label>
                         <input class="form-control" id="contato" name="contato" placeholder="(69)4002-8922" required>
                           <div class="invalid-feedback">
                             Este campo é obrigatório.
@@ -65,7 +62,7 @@
                   </div>
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
-                        <label>Endereço 1</label>
+                        <label>Endereço 1<span class="text-danger"> *</span></label>
                         <input type="text" class="form-control" id="endereco1" name="endereco1" placeholder="Rua Herbert Daniel, 1946 - Bairro Lapa" required>
                           <div class="invalid-feedback">
                             Este campo é obrigatório.
@@ -74,11 +71,12 @@
                     <div class="col-md-6 mb-3">
                         <label>Endereço 2<span class="text-muted">(Opcional)</span></label>
                         <input type="text" class="form-control" id="endereco2" name="endereco2" placeholder="Endereço opcional">
+                        <div class="valid-feedback">Este campo é opcional.</div>
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="col-md-4 mb-3">
-                        <label>País</label>
+                        <label>País<span class="text-danger"> *</span></label>
                           <select class="custom-select d-block w-100" id="pais" name="pais" required>
                             <option selected disabled value="">Selecione</option>
                             <option value="AHO">Antilhas Holandesas</option>
@@ -287,7 +285,7 @@
                             </div>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label>Estado</label>
+                        <label>Estado<span class="text-danger"> *</span></label>
                           <select class="custom-select d-block w-100" id="estado" name="estado" required>
                             <option selected disabled value="">Selecione</option>
                             <option>Rondônia</option>
@@ -297,7 +295,7 @@
                             </div>
                     </div>
                     <div class="col-md-4 mb-3">
-                      <label>Cidade</label>
+                      <label>Cidade<span class="text-danger"> *</span></label>
                         <select class="custom-select d-block w-100" id="cidade" name="cidade" required>
                           <option selected disabled value="">Selecione</option>
                           <option>Porto Velho</option>
@@ -309,6 +307,54 @@
                   </div>
                   <br>
                   <h4 class="mb-3">Pagamento<hr></h4>
+                  <label>Escolha um valor para doar mensalmente: </label>
+                    <fieldset class="form-group">
+                      <div class="row">
+                        <div class="col-sm-4">
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                            <label class="form-check-label" for="gridRadios1">R$ 20,00</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                            <label class="form-check-label" for="gridRadios1">R$ 30,00</label>
+                          </div>
+                          <div class="form-check disabled">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+                            <label class="form-check-label" for="gridRadios1">R$ 40,00</label>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="option4">
+                            <label class="form-check-label" for="gridRadios4">R$ 50,00</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios5" value="option5">
+                            <label class="form-check-label" for="gridRadios5">R$ 100,00</label>
+                          </div>
+                          <div class="form-check disabled">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios6" value="option6">
+                            <label class="form-check-label" for="gridRadios6">R$ 150,00</label>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios7" value="option7">
+                            <label class="form-check-label" for="gridRadios7">R$ 200,00</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios8" value="option8">
+                            <label class="form-check-label" for="gridRadios8">R$ 300,00</label>
+                          </div>
+                          <div class="form-check disabled">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios9" value="option9">
+                            <label class="form-check-label" for="gridRadios9">Outro Valor? <input class="form-control form-control-sm" type="text" name="" id="" placeholder="R$ 9.000,00"></label>
+                          </div>
+                        </div>
+                      </div>
+                    </fieldset>
+                    <label>Tipo de Pagamento: </label>
                     <div class="form-row d-block my-3">
                         <button class="btn btn-primary m-1" type="button" data-toggle="collapse" data-target="#cartaoCredito" aria-expanded="false" aria-controls="cartaoCredito" id="btn-first">
                           Cartão de Crédito
@@ -326,7 +372,7 @@
                     <div class="collapse" id="cartaoCredito">
                       <div class="form-row">
                         <div class="col-md-6 mb-3">
-                          <label>Títular do Cartão</label>
+                          <label>Títular do Cartão<span class="text-danger"> *</span></label>
                           <input type="text" class="form-control" id="nomeCredito" name="nomeCredito" placeholder="Digite o nome impresso" required>
                           <small class="text-muted">Nome igual ao escrito no cartão</small>
                             <div class="invalid-feedback">
@@ -334,21 +380,21 @@
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
-                          <label>Número do Cartão</label>
+                          <label>Número do Cartão<span class="text-danger"> *</span></label>
                           <input type="text" class="form-control" id="numCredito" name="numCredito" placeholder="Digite seu número do cartão" required>
                             <div class="invalid-feedback">
                               Este campo é obrigatório
                             </div>
                         </div>
                         <div class="col-md-3 mb-3">
-                            <label>Data de Validade</label>
+                            <label>Data de Validade<span class="text-danger"> *</span></label>
                             <input type="text" class="form-control" id="dataCredito" name="dataCredito" placeholder="MM/AA" required>
                               <div class="invalid-feedback ">
                                 Este campo é obrigatório
                               </div>
                         </div>
                         <div class="col-md-3 mb-3">
-                            <label>Código de Segurança</label>
+                            <label>Código de Segurança<span class="text-danger"> *</span></label>
                             <input type="text" class="form-control" id="codCredito" name="codCredito" placeholder="CVV" maxlength="3" required>
                               <div class="invalid-feedback ">
                                 Este campo é obrigatório
@@ -361,7 +407,7 @@
                     <div class="collapse" id="cartaoDebito">
                       <div class="form-row">
                         <div class="col-md-6 mb-3">
-                          <label>Títular do Cartão</label>
+                          <label>Títular do Cartão<span class="text-danger"> *</span></label>
                           <input type="text" class="form-control" id="nomeDebito" name="nomeDebito" placeholder="Digite o nome impresso" required>
                           <small class="text-muted">Nome igual ao escrito no cartão</small>
                             <div class="invalid-feedback ">
@@ -369,21 +415,21 @@
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
-                          <label>Número do Cartão</label>
+                          <label>Número do Cartão<span class="text-danger"> *</span></label>
                           <input type="text" class="form-control" id="numDebito" name="numDebito" placeholder="Digite o nome impresso" required>
                             <div class="invalid-feedback ">
                               Este campo é obrigatório
                             </div>
                         </div>
                         <div class="col-md-3 mb-3">
-                            <label>Data de Validade</label>
+                            <label>Data de Validade<span class="text-danger"> *</span></label>
                             <input type="text" class="form-control" id="dataDebito" name="dataDebito" placeholder="MM/AA" required>
                               <div class="invalid-feedback ">
                                 Este campo é obrigatório
                               </div>
                           </div>
                           <div class="col-md-3 mb-3">
-                            <label>Código de Segurança</label>
+                            <label>Código de Segurança<span class="text-danger"> *</span></label>
                             <input type="text" class="form-control" id="codDebito" name="codDebito" placeholder="CVV" maxlength="3" required>
                               <div class="invalid-feedback ">
                                 Este campo é obrigatório
