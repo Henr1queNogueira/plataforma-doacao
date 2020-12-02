@@ -1,16 +1,20 @@
 import { validarDataNascimento } from "./validarDataNascimento.js";
 import { validarCPF } from "./validarCPF.js";
+import { recuperarEndereco } from "./recuperarEndereco.js";
+
 
 const retornarMensagemDeErro = (tipo, validity) => {
-    
+    let mensagemDeErro = "";
+
     const tiposDeErro = [
         "valueMissing", 
         "typeMismatch",
+        "tooShort",
         "rangeUnderflow",
-        "customError"
+        "customError",
+        "patternMismatch",
     ];
-    let mensagemDeErro = "";
-
+    
     const mensagensDeErro = {
         nome: {
             valueMissing: "Este campo é obrigatório"
@@ -39,10 +43,12 @@ const retornarMensagemDeErro = (tipo, validity) => {
 
         },
         cep: {
-            valueMissing: "Este campo é obrigatório"
+            valueMissing: "Este campo é obrigatório",
+            patternMismatch: "CEP inválido"
         },
         endereco1: {
             valueMissing: "Este campo é obrigatório"
+           
 
         },
         pais: {
@@ -62,8 +68,6 @@ const retornarMensagemDeErro = (tipo, validity) => {
         }
     });
     return mensagemDeErro;
-
-
 }
 
 export const validarInput = (input, adicionarErro = true) => {
@@ -80,7 +84,8 @@ export const validarInput = (input, adicionarErro = true) => {
     const tipo = input.dataset.tipo;
     const validadoresEspecificos = {
        dataNascimento: input => validarDataNascimento(input),
-       cpf: input => validarCPF(input)
+       cpf: input => validarCPF(input),
+       cep: input => recuperarEndereco(input)
    };
 
    if(validadoresEspecificos[tipo]){

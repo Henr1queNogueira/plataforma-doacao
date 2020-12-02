@@ -29,7 +29,7 @@
                     </div>
                     <div class="col-md-4 mb-3">
                         <label>CPF<span class="text-danger"> *</span></label>
-                        <input type="text" class="form-control" name="cpf" placeholder="apenas números" maxlength="11" data-tipo="cpf" required>
+                        <input type="text" class="form-control" name="cpf" placeholder="apenas números" data-tipo="cpf" required>
                     </div>
                   </div>
                   <div class="form-row">
@@ -49,7 +49,7 @@
                   <div class="form-row">
                     <div class="col-md-2 mb-3">
                         <label>CEP<span class="text-danger"> *</span></label>
-                        <input type="text" class="form-control" id="cep" name="cep" placeholder="" data-tipo="cep" required>
+                        <input type="text" class="form-control" id="cep" name="cep" placeholder="" data-tipo="cep" pattern="[\d]{5}-?[\d]{3}" required>
                     </div>
                     <div class="col-md-5 mb-3">
                         <label>Endereço 1<span class="text-danger"> *</span></label>
