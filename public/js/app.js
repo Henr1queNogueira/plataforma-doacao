@@ -1,3 +1,18 @@
+import { validarInput } from "./validar.js";
+
+window.onload = () => {
+  const inputs = document.querySelectorAll("input");  
+    inputs.forEach(input => {
+      input.addEventListener("input", () => {
+        validarInput(input, false);
+      });
+      input.addEventListener('blur', () => {
+        validarInput(input);
+      })
+    })
+}
+
+
 /*FUNÇÃO que serve para confirmar ou não a removação de usuario. */
 function confirmDelete(event, form){
     //impede que o formulário seja submetido
@@ -9,25 +24,8 @@ function confirmDelete(event, form){
     }
 };
 
-/**Validação - lado cliente */
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    var forms = document.getElementsByClassName('needs-validation');
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();
 
-
-/**Exibir meios de doação */
+/**Exibir meios de doação */ 
 $(document).ready(function(){
   //1. CRÉDITO
   $("#btn-first").on('click',function(){
@@ -71,3 +69,5 @@ document.getElementById('nomeDebito').addEventListener('keyup', (ev) => {
 	const input = ev.target;
 	input.value = input.value.toUpperCase();
 });
+
+
