@@ -59,6 +59,9 @@ const retornarMensagemDeErro = (tipo, validity) => {
         },
         cidade: {
             valueMissing: "Este campo é obrigatório"
+        },
+        outroValor: {
+            valueMissing: "Este campo é obrigatório"
         }
 
     };
@@ -85,7 +88,8 @@ export const validarInput = (input, adicionarErro = true) => {
     const validadoresEspecificos = {
        dataNascimento: input => validarDataNascimento(input),
        cpf: input => validarCPF(input),
-       cep: input => recuperarEndereco(input)
+       cep: input => recuperarEndereco(input), 
+       outroValor: input => validarValor(input)
    };
 
    if(validadoresEspecificos[tipo]){
