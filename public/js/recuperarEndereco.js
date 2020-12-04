@@ -12,18 +12,19 @@ export const recuperarEndereco = (input) => {
             var cidade = json.cidade;
             var logradouro = json.logradouro;
             var uf = json.uf;
+            var bairro = json.bairro;
+
             document.getElementById("logradouro").value = logradouro;
             document.getElementById("cidade").value = cidade;
             document.getElementById("uf").value = uf;
-            console.log(cidade)
+            document.getElementById("bairro").value = bairro;
             return
 
         }
             
-        };
+    };
         xhr.send (null);
     
-
  }
     
 

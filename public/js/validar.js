@@ -25,7 +25,7 @@ const retornarMensagemDeErro = (tipo, validity) => {
         },
         cpf: {
             valueMissing: "Este campo é obrigatório",
-            customError: "CPF Inválido"
+            customError: "Este não é um CPF Válido"
         },
         dataNascimento: {
             valueMissing: "Este campo é obrigatório",
@@ -44,7 +44,7 @@ const retornarMensagemDeErro = (tipo, validity) => {
         },
         cep: {
             valueMissing: "Este campo é obrigatório",
-            patternMismatch: "CEP inválido"
+            patternMismatch: "Este CEP não é válido"
         },
         endereco1: {
             valueMissing: "Este campo é obrigatório"

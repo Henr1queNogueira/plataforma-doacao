@@ -28,8 +28,8 @@
                         <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Albertalli" data-tipo="sobrenome" required>
                     </div>
                     <div class="col-md-4 mb-3">
-                        <label>CPF<span class="text-danger"> *</span></label>
-                        <input type="text" class="form-control" name="cpf" placeholder="apenas números" data-tipo="cpf" required>
+                        <label class="label" for="cpf">CPF<span class="text-danger"> *</span></label>
+                        <input type="text" minlength="11" class="form-control" id="cpf" name="cpf" placeholder="apenas números" data-tipo="cpf" required>
                     </div>
                   </div>
                   <div class="form-row">
@@ -52,26 +52,29 @@
                         <input type="text" class="form-control" id="cep" name="cep" placeholder="" data-tipo="cep" pattern="[\d]{5}-?[\d]{3}" required>
                     </div>
                     <div class="col-md-5 mb-3">
-                        <label>Endereço 1<span class="text-danger"> *</span></label>
-                        <input type="text" class="form-control" id="logradouro" name="endereco1" placeholder="Rua Herbert Daniel, 1946 - Bairro Lapa" data-tipo="endereco1" required>
+                        <label>Endereço<span class="text-danger"> *</span></label>
+                        <input type="text" class="form-control" id="logradouro" name="endereco1" placeholder="Rua das ruas, 0101" data-tipo="endereco1" required>
                     </div>
                     <div class="col-md-5 mb-3">
-                        <label>Endereço 2<span class="text-muted">(Opcional)</span></label>
-                        <input type="text" class="form-control" id="endereco2" name="endereco2" placeholder="Endereço opcional">
+                        <label>Bairro<span class="text-danger"> *</span></label>
+                        <input type="text" class="form-control" id="bairro" name="bairro" placeholder="" required>
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="col-md-4 mb-3">
-                        <label>País<span class="text-danger"> *</span></label>
-                        <input class="form-control" required type="text" name="pais" id="pais" placeholder="Brasil" data-tipo="pais"/>       
+                      <label>Cidade<span class="text-danger"> *</span></label>
+                      <input class="form-control" type="text" name="cidade" id="cidade" placeholder="" data-tipo="cidade" required>        
                     </div>
                     <div class="col-md-4 mb-3">
                         <label>Estado<span class="text-danger"> *</span></label>
-                        <input type="text" class="form-control" id="uf" name="estado" placeholder="Rondônia" data-tipo="estado" required>
+                        <input type="text" class="form-control" id="uf" name="estado" placeholder="" data-tipo="estado" required>
                     </div>
                     <div class="col-md-4 mb-3">
-                      <label>Cidade<span class="text-danger"> *</span></label>
-                      <input class="form-control" required type="text" name="cidade" id="cidade" placeholder="Porto Velho" data-tipo="cidade"/>
+                      <label>País<span class="text-danger"> *</span></label>
+                        <select id="pais" name="pais" data-tipo="pais" class="form-control" required>
+                          <option selected>Brasil</option>
+                          <option>Outro</option>
+                        </select> 
                     </div>
                   </div>
                   <br>

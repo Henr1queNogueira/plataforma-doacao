@@ -1,4 +1,4 @@
-const ehUmCPFComNumerosRepetidos = (cpf) => {
+const ehUmCPFComNumerosRepetidos = cpf => {
     const cpfsInvalidos = [
         "11111111111",
         "22222222222",
@@ -10,54 +10,57 @@ const ehUmCPFComNumerosRepetidos = (cpf) => {
         "88888888888",
         "99999999999"
       ];
+      if(cpfsInvalidos.includes(cpf)) {
+          return true
+      }
 
-     return cpfsInvalidos.includes(cpf);
+     return false;
 };
 
-const calcularTotal = (multiplicador) => (resultado, numeroAtual) => 
+const calcularValorTotal = multiplicador => (resultado, numeroAtual) => 
 resultado + numeroAtual * multiplicador--;
 
 const calcularDigito = (parteCPF, multiplicador) => {
     //total = multiplicação dos números
-    const total = parteCPF.reduce(calcularTotal(multiplicador), 0);
-    const resto = total % 11;
+    let digitoGerado = 0;
+    let valorTotal = 0;
+
+    valorTotal = parteCPF.reduce(calcularValorTotal(multiplicador), 0);
+    digitoGerado = 11 - (valorTotal % 11)
     
-    let digito = 11 - resto;
-
-    if(resto > 9){
-        digito = 0;
+    if(digitoGerado > 9){
+        digitoGerado = 0;
     }
-    return digito;
-
+    return digitoGerado;
 }
 
 export const validarCPF = input => {
     const cpfNumeros = input.value.replace(/\D/g, "");
+    console.log(cpfNumeros)
 
     if (ehUmCPFComNumerosRepetidos(cpfNumeros)) {
-        input.setCustomValidity("CPF Inválido");
+        input.setCustomValidity("Este não é um CPF válido");
         return;
       }
-      const primeiraParteCPF = cpfNumeros.substr(0,9).split("");
-      const primeiroDigitoCPF = Number(cpfNumeros.charAt(9));
-      const primeiroDigitoCalculado = calcularDigito(primeiraParteCPF, 10);
+      const primeiraParte = cpfNumeros.substr(0,9).split("");
+      const primeiroDigitoDoCPF = Number(cpfNumeros.charAt(9));
+      const primeiroDigitoGerado = calcularDigito(primeiraParte, 10);
 
-      if(primeiroDigitoCPF !== primeiroDigitoCalculado){
+      if(primeiroDigitoDoCPF !== primeiroDigitoGerado){
           input.setCustomValidity("Este não é um CPF Válido");
           return;
       }
 
-      const segundaParteCPF = cpfNumeros.substr(0,10).split("");
-      const segundoDigitoCPF = Number(cpfNumeros.charAt(9));
-      const segundoDigitoCalculado = calcularDigito(segundaParteCPF, 10);
+      const segundaParte = cpfNumeros.substr(0,10).split("");
+      const segundoDigitoDoCPF = Number(cpfNumeros.charAt(10));
+      const segundoDigitoGerado = calcularDigito(segundaParte, 11);
       
-      if(segundoDigitoCPF !== segundoDigitoCalculado){
+      if(segundoDigitoDoCPF !== segundoDigitoGerado){
           input.setCustomValidity("Este não é um CPF válido");
           return;
       }
     
       input.setCustomValidity("");
-      return;
 
     
 };
