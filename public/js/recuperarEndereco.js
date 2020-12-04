@@ -1,5 +1,3 @@
-
-
 export const recuperarEndereco = (input) => {
     const cepNumeros = input.value.replace(/\D/g, "");
 
