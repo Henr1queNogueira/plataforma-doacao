@@ -1,6 +1,7 @@
 import { validarDataNascimento } from "./validarDataNascimento.js";
 import { validarCPF } from "./validarCPF.js";
 import { recuperarEndereco } from "./recuperarEndereco.js";
+import { validarValor } from "./validarValor.js";
 
 
 const retornarMensagemDeErro = (tipo, validity) => {
@@ -61,7 +62,8 @@ const retornarMensagemDeErro = (tipo, validity) => {
             valueMissing: "Este campo é obrigatório"
         },
         outroValor: {
-            valueMissing: "Este campo é obrigatório"
+            valueMissing: "Este campo é obrigatório",
+            customError: "O valor deve ser maior que R$0,00"
         }
 
     };

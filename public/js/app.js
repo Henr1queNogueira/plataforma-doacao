@@ -12,9 +12,8 @@ window.onload = () => {
           fractionDigits: 2,
           decimalSeparator: ',',
           thousandsSeparator: '.',
-          cursor: 'end'
-          
-        })
+          cursor: 'end'      
+        });
       }
       input.addEventListener("input", () => {
         validarInput(input, false);
