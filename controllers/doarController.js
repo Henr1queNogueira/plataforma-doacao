@@ -46,8 +46,6 @@ router.post('/doar', (req, res) => {
             //no caso, redirecionar para lista de usuários
             res.redirect('/doar')
         }
-    
-
 });
 
 
