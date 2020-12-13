@@ -1,6 +1,7 @@
 import { validarDataNascimento } from "./validarDataNascimento.js";
 import { validarCPF } from "./validarCPF.js";
 import { recuperarEndereco } from "./recuperarEndereco.js";
+import { validarValor } from "./validarValor.js";
 
 
 const retornarMensagemDeErro = (tipo, validity) => {
@@ -25,7 +26,7 @@ const retornarMensagemDeErro = (tipo, validity) => {
         },
         cpf: {
             valueMissing: "Este campo é obrigatório",
-            customError: "CPF Inválido"
+            customError: "Este não é um CPF Válido"
         },
         dataNascimento: {
             valueMissing: "Este campo é obrigatório",
@@ -44,7 +45,7 @@ const retornarMensagemDeErro = (tipo, validity) => {
         },
         cep: {
             valueMissing: "Este campo é obrigatório",
-            patternMismatch: "CEP inválido"
+            patternMismatch: "Este CEP não é válido"
         },
         endereco1: {
             valueMissing: "Este campo é obrigatório"
@@ -59,6 +60,10 @@ const retornarMensagemDeErro = (tipo, validity) => {
         },
         cidade: {
             valueMissing: "Este campo é obrigatório"
+        },
+        outroValor: {
+            valueMissing: "Este campo é obrigatório",
+            customError: "O valor deve ser maior que R$0,00"
         }
 
     };
@@ -85,7 +90,8 @@ export const validarInput = (input, adicionarErro = true) => {
     const validadoresEspecificos = {
        dataNascimento: input => validarDataNascimento(input),
        cpf: input => validarCPF(input),
-       cep: input => recuperarEndereco(input)
+       cep: input => recuperarEndereco(input), 
+       outroValor: input => validarValor(input)
    };
 
    if(validadoresEspecificos[tipo]){
