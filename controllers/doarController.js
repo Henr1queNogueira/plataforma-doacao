@@ -42,7 +42,6 @@ router.post('/doar', (req, res) => {
             //no caso, redirecionar para lista de usuários
             res.redirect('/doar')
         }
-<<<<<<< HEAD
 
      /*Fim da Validação do campos*/
 
@@ -91,8 +90,6 @@ router.post('/doar', (req, res) => {
             //res.json(payment);
         }
     })
-=======
->>>>>>> 030ea2738764944a4f6d697950cf5888e08040f0
 });
 
 router.get('/finalizar', (req, res) => {
