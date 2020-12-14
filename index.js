@@ -1,22 +1,27 @@
-/**EXPRESS */
+/**Importando bibliotecas */
 const express = require("express");
 const app = express();
 
-/**Express session */
-const session = require("express-session");
-
-/**Express flash */
-const flash = require('express-flash');
-
-/**Cookie Parser */
-const cookieParser = require('cookie-parser');
-
-/**BODY PARSER */
 const bodyParser = require('body-parser');
 const { text } = require("body-parser");
 
-/**VALIDATOR (biblioteca que ajuda a validar formulário) */
+const session = require("express-session");
+const flash = require('express-flash');
+const cookieParser = require('cookie-parser');
 const validator = require('validator');
+const paypal = require('paypal-rest-sdk');
+
+/**Importando controllers*/
+const doarController = require('./controllers/doarController');
+const contatoController = require('./controllers/contatoController');
+
+
+//Configurando Paypal
+paypal.configure({
+    'mode': 'sandbox', //sandbox or live
+    'client_id': 'AUxv9fof_elNghckCZsaHX_AFbERv9APj5hNaBmI8Xj8Pr-lBKYqP4mxw4_3y4feb4KUhB2imLM-emHI',
+    'client_secret': 'EIklnkunBUDIAZoCSNbBTgaWqz2cmpBWf4afUQlEZRrnJaKnOTdqyJxJ1s_shMHKYN6tpWW66UJC2BvY'
+  });
 
 
 /**EJS c/ express*/
@@ -47,11 +52,6 @@ app.use((req, res, next) => {
 
 });
 
-/**IMPORTANDO OS CONTROLLERS */
-const doarController = require('./controllers/doarController');
-const contatoController = require('./controllers/contatoController');
-
-
 /**Rotas exportadas da pasta controllers*/
 app.use('/', doarController);
 app.use('/', contatoController);
@@ -67,7 +67,6 @@ app.get("/", function(req, res){
 app.get("/sobre", function(req, res){
     res.render("sobre")
 });
-
 
 
 /**SERVIDOR */

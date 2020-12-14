@@ -17,7 +17,7 @@
           <div class="form-row">
             <div class="col-md-12 order-md-1 p-4">
               <h4 class="mb-3">Dados pessoais <hr></h4>
-                <form class="form-group" method="POST" action="#">
+                <form class="form-group" method="POST" action="/doar">
                   <div class="form-row">
                     <div class="col-md-4 mb-3">
                       <label>Nome<span class="text-danger"> *</span></label>
@@ -77,128 +77,17 @@
                         </select> 
                     </div>
                   </div>
-                  <br>
-                  <h4 class="mb-3">Pagamento<hr></h4>
-                  <label>Escolha um valor para doar mensalmente: </label>
-                    <fieldset class="form-group">
-                      <div class="row">
-                        <div class="col-sm-4">
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                            <label class="form-check-label" for="gridRadios1">R$ 20,00</label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                            <label class="form-check-label" for="gridRadios1">R$ 30,00</label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
-                            <label class="form-check-label" for="gridRadios1">R$ 40,00</label>
-                          </div>
-                        </div>
-                        <div class="col-sm-4">
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="option4">
-                            <label class="form-check-label" for="gridRadios4">R$ 50,00</label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios5" value="option5">
-                            <label class="form-check-label" for="gridRadios5">R$ 100,00</label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios6" value="option6">
-                            <label class="form-check-label" for="gridRadios6">R$ 150,00</label>
-                          </div>
-                        </div>
-                        <div class="col-sm-4">
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios7" value="option7">
-                            <label class="form-check-label" for="gridRadios7">R$ 200,00</label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios8" value="option8">
-                            <label class="form-check-label" for="gridRadios8">R$ 300,00</label>
-                          </div>
-                          <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios9" value="option9">
-                            <label class="form-check-label" for="outroValor">Outro Valor? <input class="form-control form-control-sm" type="text" id="outroValor" name="outroValor" data-tipo="outroValor" placeholder="R$ 9.000,00" required></label>
-                          </div>
-                        </div>
-                      </div>
-                    </fieldset>
-                    <label>Tipo de Pagamento: </label>
-                    <div class="form-row d-block my-3">
-                        <button class="btn btn-primary m-1" type="button" data-toggle="collapse" data-target="#cartaoCredito" aria-expanded="false" aria-controls="cartaoCredito" id="btn-first">
-                          Cartão de Crédito
-                        </button>
-                        <button class="btn btn-primary m-1" type="button" data-toggle="collapse" data-target="#cartaoDebito" aria-expanded="false" aria-controls="cartaoDebito" id="btn-second">
-                          Cartão de Débito
-                        </button>          
-                        <button class="btn btn-primary m-1" type="button" data-toggle="collapse" data-target="#paypal" aria-expanded="false" aria-controls="paypal" id="btn-third">
-                          Paypal
-                        </button>
-                    </div>
-                  <!--Inserindo linhas para selecionar formas de pagamentos-->
                   <div class="form-row">
-                    <!-- Pagamento com cartão de crédito -->
-                    <div class="collapse" id="cartaoCredito">
-                      <div class="form-row">
-                        <div class="col-md-6 mb-3">
-                          <label>Títular do Cartão<span class="text-danger"> *</span></label>
-                          <input type="text" class="form-control" id="nomeCredito" name="nomeCredito" placeholder="Digite o nome impresso" required>
-                          <small class="text-muted">Nome igual ao escrito no cartão</small>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                          <label>Número do Cartão<span class="text-danger"> *</span></label>
-                          <input type="text" class="form-control" id="numCredito" name="numCredito" placeholder="Digite seu número do cartão" required>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label>Data de Validade<span class="text-danger"> *</span></label>
-                            <input type="text" class="form-control" id="dataCredito" name="dataCredito" placeholder="MM/AA" required>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label>Código de Segurança<span class="text-danger"> *</span></label>
-                            <input type="text" class="form-control" id="codCredito" name="codCredito" placeholder="CVV" maxlength="3" required>
-                        </div>
-                    </div>
-                      
-                    </div>
-                    <!-- Pagamento com cartão de débito -->
-                    <div class="collapse" id="cartaoDebito">
-                      <div class="form-row">
-                        <div class="col-md-6 mb-3">
-                          <label>Títular do Cartão<span class="text-danger"> *</span></label>
-                          <input type="text" class="form-control" id="nomeDebito" name="nomeDebito" placeholder="Digite o nome impresso" required>
-                          <small class="text-muted">Nome igual ao escrito no cartão</small>
-                          
-                        </div>
-                        <div class="col-md-6 mb-3">
-                          <label>Número do Cartão<span class="text-danger"> *</span></label>
-                          <input type="text" class="form-control" id="numDebito" name="numDebito" placeholder="Digite o nome impresso" required>
-                           
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <label>Data de Validade<span class="text-danger"> *</span></label>
-                            <input type="text" class="form-control" id="dataDebito" name="dataDebito" placeholder="MM/AA" required>
-                              
-                          </div>
-                          <div class="col-md-3 mb-3">
-                            <label>Código de Segurança<span class="text-danger"> *</span></label>
-                            <input type="text" class="form-control" id="codDebito" name="codDebito" placeholder="CVV" maxlength="3" required>
-                              
-                          </div>
-                      </div>
-                    </div>
-                    <div class="collapse" id="paypal">
-                      <div class="col-md-12 mb-3">
-                        <br>   
-                        Para fazer sua doação via Paypal <a href="https://www.paypal.com/br" class="btn btn-sm btn-outline-primary" target="_blank">Clique aqui</a>
-                        <br>   
-                      </div>
-                    </div>
+                    <div class="col-md-12 mb-3">
+                      <h4 class="mb-3">Pagamento<hr></h4>
+                      <small class="text-muted" for="outroValor">Digite um valor</small>
+                      <input class="form-control form-control-sm" type="text" id="outroValor" name="outroValor" data-tipo="outroValor" placeholder="R$ 9.000,00" required>
+                    </div> 
                   </div>
+                  <div class="form-row">
                     <hr class="mb-4">
                     <button class="btn btn-success btn-lg btn-block" type="submit">DOAR</button>
+                  </div>     
                 </form>
             </div> 
           </div>

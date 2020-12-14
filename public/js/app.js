@@ -37,7 +37,7 @@ function confirmDelete(event, form){
 };
 
 
-/**Exibir meios de doação */ 
+/**Exibir meios de doação 
 $(document).ready(function(){
   //1. CRÉDITO
   $("#btn-first").on('click',function(){
@@ -82,4 +82,4 @@ document.getElementById('nomeDebito').addEventListener('keyup', (ev) => {
 	input.value = input.value.toUpperCase();
 });
 
-
+*/ 
