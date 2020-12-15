@@ -56,6 +56,12 @@ app.use((req, res, next) => {
 app.use('/', doarController);
 app.use('/', contatoController);
 
+/**
+ * app.use("/", require('./routes'))
+ * 
+ * app.listen(8000, () => console.log())
+ */
+
 
 
 /**--- ROTAS ----- */
@@ -70,11 +76,10 @@ app.get("/sobre", function(req, res){
 
 
 /**SERVIDOR */
-app.listen(8000, function(erro){
+app.listen(8000, (erro) =>{ 
     if(!erro){
         console.log("Servidor iniciado na porta 8000");
-
     }else{
-        console.log("Deu erro!")
+        console.log("Deu erro! " +erro)
     }
-})
+});

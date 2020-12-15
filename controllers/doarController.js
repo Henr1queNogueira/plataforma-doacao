@@ -49,8 +49,6 @@ router.post('/doar', (req, res) => {
 
      var {cpf, email, valor} = req.body;
 
-     console.log(valor)
-
      const doacao = {
         "intent": "sale",
         "payer": {

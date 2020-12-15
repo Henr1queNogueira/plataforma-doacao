@@ -1,0 +1,22 @@
+{
+    "valores": [
+        {
+            "id": "01",
+            "titulo": "Doação - R$20,00",
+            "descricao": "Doação no valor de R$20,00",
+            "preco": 20
+        },
+        {
+            "id": "02",
+            "titulo": "Doação - R$30,00",
+            "descricao": "Doação no valor de R$30,00",
+            "preco": 30
+        },
+        {
+            "id": "03",
+            "titulo": "Doação - R$40,00",
+            "descricao": "Doação no valor de R$40,00",
+            "preco": 40
+        }
+    ]
+}
