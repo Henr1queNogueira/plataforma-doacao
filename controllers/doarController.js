@@ -47,7 +47,9 @@ router.post('/doar', (req, res) => {
 
      /**Paypal - inicio*/
 
-     var {cpf, email} = req.body;
+     var {cpf, email, valor} = req.body;
+
+     console.log(valor)
 
      const doacao = {
         "intent": "sale",
@@ -55,22 +57,22 @@ router.post('/doar', (req, res) => {
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": `http://localhost:8000/finalizar?email=${email}`,
+            "return_url": `http://localhost:8000/finalizar?email=${email}&valor=${valor}`,
             "cancel_url": "http://cancel.url"
         },
         "transactions": [{
             "item_list": {
                 "items": [{
                     "name": "Doacao",
-                    "sku": "" + Date.now(), //id do valor
-                    "price": "1.00",
+                    "sku": "121_doacao", //id do valor
+                    "price": valor,
                     "currency": "BRL",
                     "quantity": 1
                 }]
             },
             "amount": {
                 "currency": "BRL",
-                "total": "1.00"
+                "total": valor
             },
             "description": "Doação no valor de R$1. Muito Obrigado!"
         }]
@@ -95,17 +97,18 @@ router.post('/doar', (req, res) => {
 router.get('/finalizar', (req, res) => {
     var payerId = req.query.PayerID;
     var paymentId = req.query.paymentId;
+    var valor = req.query.valor;
 
     var clienteEmail = req.query.email;
     
-    console.log(clienteEmail)
+    //console.log(clienteEmail)
     
     const finalizar = {
         "payer_id": payerId,
         "transactions": [{
             "amount" : {
                 "currency": "BRL",
-                "total": "1.00"
+                "total": valor
             }
         }]
     }
