@@ -81,10 +81,12 @@
                     <div class="col-md-12 mb-3">
                       <h4 class="mb-3">Pagamento<hr></h4>
                       <% for(var i=0; i<valores.length; i++) { %>
-                        <h3> <%= valores[i].titulo</h3>
-                        <br>
-                        <h5>Doação de R$ <%= valores[i].preco %></h5>
-
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                          <label class="form-check-label" for="flexRadioDefault1">
+                            Doação de R$ <%= valores[i].preco %>
+                          </label>
+                        </div>
                      <% } %>
                       <small class="text-muted">outro valor?</small>
                       <input class="form-control form-control-sm" type="text" id="valor" name="valor" placeholder="R$ 9.000,00" required>
