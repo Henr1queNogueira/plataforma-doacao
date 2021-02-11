@@ -7,8 +7,10 @@ const paypal = require('paypal-rest-sdk');
 const { text } = require('body-parser');
 const { default: validator } = require('validator');
 
+const {valores} = require("../config/valores.json");
+
 router.get('/doar', (req, res) => {
-    res.render('doar');
+    res.render('doar', {valores});
 });
 
 router.post('/doar', (req, res) => {
@@ -48,8 +50,6 @@ router.post('/doar', (req, res) => {
      /**Paypal - inicio*/
 
      var {cpf, email, valor} = req.body;
-
-     console.log(valor)
 
      const doacao = {
         "intent": "sale",

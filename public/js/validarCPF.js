@@ -36,7 +36,6 @@ const calcularDigito = (parteCPF, multiplicador) => {
 
 export const validarCPF = input => {
     const cpfNumeros = input.value.replace(/\D/g, "");
-    console.log(cpfNumeros)
 
     if (ehUmCPFComNumerosRepetidos(cpfNumeros)) {
         input.setCustomValidity("Este não é um CPF válido");
