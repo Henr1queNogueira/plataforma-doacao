@@ -4,7 +4,6 @@ const ejs = require('ejs');
 const flash = require('express-flash');
 
 const { text } = require('body-parser');
-const { default: validator } = require('validator');
 
 router.get('/contato', (req, res) => {
     res.render('contato')

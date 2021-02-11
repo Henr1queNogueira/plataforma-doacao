@@ -7,8 +7,6 @@ const { text } = require("body-parser");
 
 const session = require("express-session");
 const flash = require('express-flash');
-const cookieParser = require('cookie-parser');
-const validator = require('validator');
 const paypal = require('paypal-rest-sdk');
 
 /**Importando controllers*/
@@ -32,8 +30,9 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-/**Config do cookie com express */
-app.use(cookieParser("jsaddsh"));
+/**Config do cookie com express 
+app.use(cookieParser("jsaddsh"));*/
+//Config do express-session
 app.use(session({
     secret: 'keyboard cat',
     resave: true,
