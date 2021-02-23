@@ -4,6 +4,7 @@ const ejs = require('ejs');
 const flash = require('express-flash');
 const paypal = require('paypal-rest-sdk');
 const pdf = require('html-pdf');
+const Doacao = require('../models/Doar');
 
 const { text } = require('body-parser');
 const {valores} = require("../config/valores.json");
@@ -88,6 +89,29 @@ router.post('/doar', (req, res) => {
 
                 if(p.rel === 'approval_url'){
                     res.redirect(p.href);
+
+                    var { nome, sobrenome, cpf, dataNascimento, email, contato, endereco1, pais, estado, cidade, valor } = req.body;
+                    Doacao.create({
+                        nome: nome, 
+                        sobrenome: sobrenome,
+                        cpf: cpf,
+                        dataNascimento: dataNascimento,
+                        email: email,
+                        contato: contato,
+                        endereco1: endereco1,
+                        cidade: cidade,
+                        estado: estado,
+                        pais: pais,
+                        valor: valor
+            
+                        }).then(() => {
+                            //req.flash('msg_sucesso', 'Usuário criado com sucesso!');
+                            console.log('tabela criada')
+                            
+                        }).catch(()=> {
+                            console.log(`Deu erro ${error}`)
+                            
+                        });
                 }
             }
             var { nome, sobrenome, cpf, dataNascimento, email, contato, endereco1, pais, estado, cidade, valor } = req.body;
@@ -138,8 +162,6 @@ router.get('/finalizar', (req, res) => {
         if(error){
             console.log(error);
         } else {
-            //salvar dados de pagamento no banco de dados
-    //Clientetabela.addDoacao(doacao);
 
             res.json(payment)
         }
