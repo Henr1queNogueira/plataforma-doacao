@@ -2,6 +2,9 @@
 const express = require("express");
 const app = express();
 
+//Conexão com o banco de dados
+const connection = require('./database/database');
+
 const bodyParser = require('body-parser');
 const { text } = require("body-parser");
 
@@ -13,6 +16,17 @@ const paypal = require('paypal-rest-sdk');
 const doarController = require('./controllers/doarController');
 const contatoController = require('./controllers/contatoController');
 
+/** Importando os Models */
+const Doacao = require("./models/Doar")
+
+//Database - conexão com o banco
+connection
+    .authenticate()
+    .then(() => {
+        console.log ("A Conexão com Banco de dados foi feita com sucesso!");
+    }).catch((error) => {
+        console.log(error);
+    });
 
 //Configurando Paypal
 paypal.configure({

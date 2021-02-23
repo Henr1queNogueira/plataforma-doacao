@@ -3,6 +3,7 @@ const router = express.Router();
 const ejs = require('ejs');
 const flash = require('express-flash');
 const paypal = require('paypal-rest-sdk');
+const pdf = require('html-pdf');
 
 const { text } = require('body-parser');
 const {valores} = require("../config/valores.json");
@@ -82,11 +83,33 @@ router.post('/doar', (req, res) => {
             console.log(error);
         } else {
             for(var i = 0; i < payment.links.length; i++){
+
                 var p = payment.links[i];
+
                 if(p.rel === 'approval_url'){
                     res.redirect(p.href);
                 }
             }
+            var { nome, sobrenome, cpf, dataNascimento, email, contato, endereco1, pais, estado, cidade, valor } = req.body;
+
+            //Criar pdf (comprovante de doação)
+                const comprovanteDoacao = `
+                <h1> Comprovante de Doação</h1> <hr>
+                <p> A Casa de Apoio - Filhos de Hiram, entidade sem fins lucrativos, 
+                inscrita no CNPJ sob o nº(informar), com sede à (endereço da casa), declara ter recebido de 
+                ${nome} ${sobrenome}, inscrito(a) no CPF sob o nº ${cpf}, em DOAÇÂO a importância de R$ ${valor}, 
+                declarando ainda que os recursos aplicados integralmente na 
+                construção da casa de apoio para atender pacientes do Hospital do Amor.</p>
+                `
+                pdf.create(comprovanteDoacao, {'format': 'A4'}).toFile('./meupdf2.pdf', function(err, res){
+                    if(err){
+                        console.log(err)
+                    } else{
+                        console.log(res);
+                    }
+                  });  
+                  
+                  
             //res.json(payment);
         }
     })

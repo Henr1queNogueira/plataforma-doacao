@@ -37,6 +37,7 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+            <input type="button" class="btn btn-warning" value="Imprimir" onclick="exibirPDF()">
           </form>
         </div>
         <div class="col-lg-6">
@@ -71,6 +72,19 @@
     </section>      
   <%- include('./partials/footer.ejs'); %>
 </body>
+<script>
+  function exibirPDF() {
+  var nome = document.getElementById('nomeContato').innerHTML
+  var email = document.getElementById('emailContato').innerHTML
+
+  var janela = window.open('', '', 'width=800, height=600');
+  janela.document.write(`${nome}`)
+   janela.document.close();
+   janela.print();
+
+  
+}
+</script>
 <script type="text/javascript" src="../js/jquery-3.2.1.slim.min.js"></script>
 <script type="text/javascript" src="../js/popper.min.js"></script>
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>

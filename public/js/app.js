@@ -83,3 +83,15 @@ document.getElementById('nomeDebito').addEventListener('keyup', (ev) => {
 });
 
 */ 
+function exibirPDF() {
+  var nome = document.getElementById('nomeContato').innerHTML
+  var email = document.getElementById('emailContato').innerHTML
+
+  var janela = window.open('', '', 'width=800, height=600');
+  janela.document.write(`<html> <head> <title> Dados de contato </title>
+   </head> <body>${nome} e ${email} </body> </html>`)
+   janela.document.close();
+   janela.print();
+
+  
+}
