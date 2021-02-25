@@ -36,11 +36,17 @@ router.post('/contato', (req, res) => {
 
         }).then(() => {
             //no caso, redirecionar para contato
-            res.redirect('/contato')
+            res.redirect('/comprovante')
         })
         
     }
 }); 
+
+//Rederizando o comprovante de doação - TESTE
+router.get('/comprovante', (req, res) => {
+    res.render('mensagens/comprovanteDoacao')
+    
+});
 
 
 module.exports = router;
