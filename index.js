@@ -18,6 +18,7 @@ const contatoController = require('./controllers/contatoController');
 
 /** Importando os Models */
 const Doacao = require("./models/Doar")
+const Contato = require("./models/Contato")
 
 //Database - conexão com o banco
 connection

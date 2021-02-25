@@ -4,6 +4,7 @@ const ejs = require('ejs');
 const flash = require('express-flash');
 
 const { text } = require('body-parser');
+const Contato = require('../models/Contato');
 
 router.get('/contato', (req, res) => {
     res.render('contato')
@@ -20,7 +21,7 @@ router.post('/contato', (req, res) => {
     if (typeof emailContato == undefined || !emailContato || emailContato == null) {
         erros.push({text: 'E-mail inválido'});
     }
-    if(validator.isEmpty(msgContato)){
+    if(msgContato == undefined || !msgContato || msgContato == null){
         erros.push({text: 'O campo não pode ser vazio'});
     }
 
@@ -28,9 +29,18 @@ router.post('/contato', (req, res) => {
         res.render('contato', {erros, nomeContato, emailContato, msgContato});
     }else{
         req.flash('msg_sucesso', 'Mensagem enviada!');
-        //no caso, redirecionar para contato
-        res.redirect('/contato')
+        Contato.create({
+            nomeContato: nomeContato,
+            emailContato: emailContato,
+            msgContato: msgContato
+
+        }).then(() => {
+            //no caso, redirecionar para contato
+            res.redirect('/contato')
+        })
+        
     }
-})
+}); 
+
 
 module.exports = router;
