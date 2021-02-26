@@ -29,6 +29,13 @@ router.post('/contato', (req, res) => {
         res.render('contato', {erros, nomeContato, emailContato, msgContato});
     }else{
         req.flash('msg_sucesso', 'Mensagem enviada!');
+
+        const comprovanteDoacao = `A Casa de Apoio - Filhos de Hiram, entidade sem fins lucrativos, 
+        inscrita no CNPJ sob o nº(informar), com sede à (endereço da casa), declara ter recebido de 
+        ${nomeContato}, inscrito(a) no CPF sob o nº ${emailContato}, em DOAÇÂO a importância de R$, 
+        declarando ainda que os recursos aplicados integralmente na 
+        construção da casa de apoio para atender pacientes do Hospital do Amor.`
+
         Contato.create({
             nomeContato: nomeContato,
             emailContato: emailContato,
@@ -36,17 +43,10 @@ router.post('/contato', (req, res) => {
 
         }).then(() => {
             //no caso, redirecionar para contato
-            res.redirect('/comprovante')
+            res.render('mensagens/comprovanteDoacao', {comprovanteDoacao: comprovanteDoacao})
         })
         
     }
 }); 
-
-//Rederizando o comprovante de doação - TESTE
-router.get('/comprovante', (req, res) => {
-    res.render('mensagens/comprovanteDoacao')
-    
-});
-
 
 module.exports = router;

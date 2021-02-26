@@ -3,13 +3,9 @@
     <div class="container text-center bg-light shadow p-5">
         <div class="row">
             <div class="col-md-12 p-4">
-                <h4 class="text-left pb-3">Comprovante de Doação</h4>
-                
-                    <p class="fst-normal">A Casa de Apoio - Filhos de Hiram, entidade sem fins lucrativos, 
-                        inscrita no CNPJ sob o nº 27.624.398/0001-93, com sede à Rua: Tabajara, nº 2651 bairro: Liberdade - Porto Velho-RO, declara ter recebido de 
-                        nomeContato, e e-mail emailContato inscrito(a) no CPF sob o nº ${cpf}, em DOAÇÂO a importância de R$ ${valor}, 
-                        declarando ainda que os recursos aplicados integralmente na construção da casa de apoio para atender pacientes do Hospital do Amor.</p>
-          
+                <h4 class="text-left pb-3">Comprovante de Doação</h4>      
+                    <p class="fst-normal"> <%- comprovanteDoacao %></p>
+                    <input type="button" class = "btn btn-secondary" value="Imprimir" onClick="window.print()"/>
             </div>
         </div>  <br>
     </div>
